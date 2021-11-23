@@ -73,14 +73,11 @@ def closestUtil(P, Q, n):
     Pl = P[:mid]
     Pr = P[mid:]
  
-
     dl = closestUtil(Pl, Q, mid)
     dr = closestUtil(Pr, Q, n - mid)
  
-  
     # Acha a menor distancia 
     d = min(dl, dr)
- 
 
     stripP = []
     stripQ = []
@@ -94,8 +91,6 @@ def closestUtil(P, Q, n):
     stripP.sort(key = lambda point: point.y) #<-- REQUIRED
     min_a = min(d, stripClosest(stripP, len(stripP), d))
     min_b = min(d, stripClosest(stripQ, len(stripQ), d))
-     
-     
 
     return min(min_a,min_b)
  

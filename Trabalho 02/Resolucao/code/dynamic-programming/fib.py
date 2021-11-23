@@ -1,3 +1,7 @@
+
+# Implementação ingênua de um
+# algoritmo para resolver fibonnaci
+# de forma recursiva
 def fib(n):
     if n <= 2: 
         return 1
