@@ -1,0 +1,59 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+
+\usepackage{import}
+
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}  
+
+\graphicspath{{img/}}
+     
+\sloppy
+
+\title{Uma argumentação entre \emph{Backtracking} e \emph{Branch and Bound}}
+
+\author{Gustavo Lopes Rodrigues\inst{1}, Rafael Amauri Diniz Augusto\inst{2}}
+
+\address{Instituto de Ciências Exatas e Informática -- \\
+Pontifícia Universidade Católica de Minas Gerais(PUC-MG)}
+
+\begin{document} 
+
+  \maketitle
+
+  \import{./sections}{abstract.tex}
+
+  \import{./sections}{general-information.tex}
+
+  \import{./sections/main-estrategies}{backtracking.tex}
+
+  \import{./sections/main-estrategies}{branch-and-bound.tex}
+
+  \section{Outras estratégias} \label{sec:other-strategies}
+
+    Section titles must be in boldface, 13pt, flush left. There should be an extra
+    12 pt of space before each title. Section numbering is optional. The first
+    paragraph of each section should not be indented, while the first lines of
+    subsequent paragraphs should be indented by 1.27 cm.
+
+  \import{./sections/other-estrategies}{greedy-algorithm.tex}
+
+  \import{./sections/other-estrategies}{divide-and-conquer.tex}
+
+  \import{./sections/other-estrategies}{dynamic-programming.tex}
+
+  \section{References}
+
+    Bibliographic references must be unambiguous and uniform.  We recommend giving
+    the author names references in brackets, e.g. \cite{knuth:84},
+    \cite{boulic:91}, and \cite{smith:99}.
+
+    The references must be listed using 12 point font size, with 6 points of space
+    before each reference. The first line of each reference should not be
+    indented, while the subsequent should be indented by 0.5 cm.
+
+  \bibliographystyle{sbc}
+  \bibliography{sbc-template}
+
+\end{document}
