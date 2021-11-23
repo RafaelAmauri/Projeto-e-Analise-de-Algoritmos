@@ -1,7 +1,7 @@
 
-# Implementação do algoritmo para resolver
-# fibonnaci de forma recursiva, usando programação
-# dinâmica, usando a técnica de memoization
+# Implementação do algoritmo para resolver o problema de 
+# fibonnaci a partir de recursão, usando programação
+# dinâmica, com a técnica de memoization
 def fib(n, memo = {}):
     if n in memo:
         return memo[n]
