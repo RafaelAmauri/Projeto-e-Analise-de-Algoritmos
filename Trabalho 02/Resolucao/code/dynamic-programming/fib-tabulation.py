@@ -1,7 +1,7 @@
 
-# Implementação do algoritmo para resolver o problema de 
-# fibonnaci a partir de recursão, usando programação
-# dinâmica, com a técnica de tabulation
+# Implementacaoo do algoritmo para resolver o problema de 
+# fibonnaci a partir de recursao, usando programacao
+# dinamica, com a tecnica de tabulation
 def fib(n):
     table = [0 for i in range(n+1)]
     table[1] = 1
