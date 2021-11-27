@@ -1,11 +1,21 @@
 \subsection{Abordagem gulosa}
 
-    Algoritmo guloso ou míope é técnica de projeto de algoritmos que tenta resolver
-    o problema fazendo a escolha localmente ótima em cada fase com a esperança de
-    encontrar um ótimo global.
+    Algoritmo guloso é a estratégia que tenta resolver o problema fazendo a 
+    escolha localmente ótima em cada fase com a esperança de encontrar 
+    um ótimo global que resolve todo o problema. 
 
     Na solução de alguns problemas combinatórios a estratégia gulosa pode
     assegurar a obtenção de soluções ótimas, o que não é muito comum. No
     entanto, quando o problema a ser resolvido pertencer à classe NP-completo
     ou NP-difícil, a estratégia gulosa torna-se atrativa para a obtenção de
     solução aproximada em tempo polinomial.
+
+    Um exemplo de abordagem gulosa é o Algoritmo de Dijkstra.
+
+\subsubsection{Algoritmo de Dikstra}
+
+    Dado um grafo qualquer, e dois pontos: partida e chegada, encontre o menor caminho possível.
+    Para resolver esse problema, Dijkstra cria o que é chamado de \emph{Shortest path tree}(spt) ou 
+    a árvore de caminho mais curto. A cada passo do algoritmo a \textbf{spt} adiciona uma vértice não visitada,
+    e então atualiza a distância das adjacências da vértice que foi adicionada. O algoritmo irá terminar, quando 
+    a \textbf{spt} conter informação de todas as vértices.

@@ -1,17 +1,17 @@
 \section{Backtracking} \label{sec:backtracking}
 
-Backtracking é um tipo de algoritmo que representa um refinamento da busca por força bruta,
-em que múltiplas soluções podem ser eliminadas sem serem explicitamente examinadas. O termo
-foi cunhado pelo matemático estado-unidense D. H. Lehmer na década de 1950.
+\emph{Backtracking} é uma estratégia para resolver problemas recursivamente e incrementalmente,
+removendo as soluções parciais que falham em ajudar na solução para o problema. Para aplicar essa
+técnica, o algoritmo tenta encontrar a solução utilizando diversos pequenos \emph{checkpoints}, para os
+quais o programa pode voltar se a iteração atual para a resolução do problema não ajudar a encontrar a
+solução final.
 
-O procedimento é usado em linguagens de programação como Prolog. Uma busca inicial 
-em um programa nessa linguagem segue o padrão busca em profundidade, ou seja, a árvore
-é percorrida sistematicamente de cima para baixo e da esquerda para direita. Quando essa
-pesquisa falha, ou é encontrado um nodo terminal da árvore, entra em funcionamento o
-mecanismo de backtracking. Esse procedimento faz com que o sistema retorne pelo mesmo 
-caminho percorrido com a finalidade de encontrar soluções alternativas. 
+Essa estratégia é viável para resolver problemas modulares que requerem muita tentativa e erro, já que ele
+remove “caminhos” inválidos, e isso salva muito tempo de processamento.
 
 \subsection{Problema do labirinto}
+
+Considere o labirinto abaixo:
 
 \begin{figure}[ht]
   \centering
@@ -20,4 +20,12 @@ caminho percorrido com a finalidade de encontrar soluções alternativas.
   \label{fig:labirinto}
 \end{figure}
 
-Problema do labirinto
+Resolver labirintos é uma aplicação clássica da estratégia de \emph{backtracking}, pois envolve diversas
+possibilidades de caminhos e é fácil integrar \emph{checkpoints} no problema.
+Imaginando que podemos traduzir a imagem acima para uma matriz onde cada ponto de decisão do
+labirinto é uma célula, que todas células têm ponteiros que apontam para quatro direções: cima, baixo,
+esquerda e direita, e que esses ponteiros podem levar a outras células ou ser do tipo NULL (indicando que
+não há uma célula ligada naquela direção), a estratégia de backtracking pode ser usada para resolver o
+problema.
+
+\newpage
