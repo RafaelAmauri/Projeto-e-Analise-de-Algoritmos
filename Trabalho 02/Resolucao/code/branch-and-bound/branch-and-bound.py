@@ -29,6 +29,9 @@ class Node:
     def __gt__(self, other):
         return self.cost > other.cost
 
+    def __str__(self):
+        return f'{self.cost}'
+
 
 def calculate_cost(cost_matrix, x, y, assigned):
     cost = 0
@@ -73,10 +76,10 @@ def find_min_cost(cost_matrix):
 
     priority_queue.append(root)
     
-    while(len(priority_queue) > 0):
-        minimum = priority_queue[0]
+    while(len(priority_queue) != 0):
 
-        priority_queue.pop(0)
+        print(priority_queue)
+        minimum = priority_queue.pop(len(priority_queue) - 1)
 
         i = minimum.workerID+1
 
@@ -94,6 +97,7 @@ def find_min_cost(cost_matrix):
                 child.cost = child.path_cost + calculate_cost(cost_matrix, i, j, child.assigned)
 
                 priority_queue.append(child)
+                priority_queue.sort()
 
 def main():
     cost_matrix = [

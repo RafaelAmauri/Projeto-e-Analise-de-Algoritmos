@@ -1,6 +1,6 @@
 \section{Branch and Bound} \label{sec:branch-and-bound}
 
-O método de Ramificar e limitar (em inglês, Branch and bound) é um algoritmo para 
+O método de Ramificar e limitar é um algoritmo para 
 encontrar soluções ótimas para vários problemas de otimização, especialmente em 
 otimização combinatória. Consiste em uma enumeração sistemática de todos os candidatos
 a solução, através da qual grandes subconjuntos de candidatos infrutíferos são 
@@ -27,3 +27,28 @@ e o problema da mochila.
         \hline
    \end{tabular}
 \end{table}
+
+\begin{algorithm}
+    \caption{Branch and Bound}
+    \begin{algorithmic}[1]
+    \Procedure{DFS}{}
+    \State {$\text{colors} \gets \text{[G.vertex]}$}
+    \For{$\text{v in G.V}$}
+    \If{$\text{colors[v] == WHITE}$}
+    \State {$\textbf{visit(v,colors)}$}
+    \EndIf
+    \EndFor
+    \EndProcedure
+    \Procedure{visit}{index,colors}
+    \State {$\text{colors[index]} \gets \text{YELLOW}$}
+    \For{$\text{v in G.adj[index]}$}
+    \If{$\text{colors[v] == WHITE}$}
+    \State {$\textbf{visit(v,colors)}$}
+    \EndIf
+    \EndFor
+    \State {$\text{colors[index]} \gets \text{RED}$}
+    \EndProcedure
+    \end{algorithmic}
+  \end{algorithm}
+
+  \newpage
