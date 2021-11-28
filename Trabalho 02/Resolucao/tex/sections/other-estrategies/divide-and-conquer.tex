@@ -36,15 +36,44 @@
     \begin{algorithm}
         \caption{Closest pair of points} 
         \begin{algorithmic}[1]
-        \Procedure{Divide-and-conquer}{}
-        \State {$d_{min}$ $\gets$ $min(d_L,d_R)$}
-        \State {$Y_{L}$ $\gets$ $\text{ set of y-sorted points in }$ $\Delta$ $\text{ lying to the left of \textbf{l}}$}
-        \State {$Y_{R}$ $\gets$ $\text{ set of y-sorted points in }$ $\Delta$ $\text{ lying to the right of \textbf{l}}$}
-        \State {$text{left}$ $\gets$ $first[Y_L]$}
-        \State {$text{right}$ $\gets$ $first[Y_R]$}
-        \If{$\text{colors[v] == WHITE}$}
-        \State {$\textbf{visit(v,colors)}$}
+        \Procedure{Divide-and-conquer}{P,Q}
+        \If{$n \geq 3$}
+        \State {$\textbf{bruteForce(P,n)}$}
         \EndIf
+        \State {$midPoint$ $\gets$ $P[\frac{n}{2}]$}
+        \State {$P_l$ $\gets$ $P[1...\frac{n}{2}-1]$}
+        \State {$Q_l$ $\gets$ $P[1...\frac{n}{2}-1]$}
+        \State {$P_r$ $\gets$ $P[\frac{n}{2}...n]$}
+        \State {$Q_r$ $\gets$ $P[\frac{n}{2}...n]$}
+        \State {$d_l$ $\gets$ $DIVIDE-AND-CONQUER(P_l,Q_l)$}
+        \State {$d_r$ $\gets$ $DIVIDE-AND-CONQUER(P_r,Q_r)$}
+        \State {$d$ $\gets$ $min(d_l,d_r)$}
+        \State {$strip_p$ $\gets$ $[]$}
+        \State {$strip_q$ $\gets$ $[]$}
+        \State {$lr$ $\gets$ $P_l + P_r$}
+        \For {$\text{i \textbf{to} n}$}
+        \If{$abs(lr[i].x - midPoint.x) < d$}
+        \State{$stripP.append(lr[i])$}
+        \EndIf
+        \If{$abs(Q[i].x - midPoint.x) < d$}
+        \State{$stripQ.append(Q[i])$}
+        \EndIf
+        \EndFor
+        \State {$sort(stripP,key = y)$}
+        \State {$min_p$ $\gets$ $min(d, stripClosest(striP), \mid stripP \mid , d )$}
+        \State {$min_q$ $\gets$ $min(d, stripClosest(striQ), \mid stripQ \mid , d )$}
+        \State {$\textbf{return } $ $min(min_p,min_q)$}
+        %\While {there are points in $Y_L$ and $Y_R$}
+        %\State {$\text{dist}$ $\gets$ $\text{distance(left,right)}$}
+        %\If{$dist < d_{min}$}
+        %\State {$\textbf{closestPair}$ $\gets$ $(left,right)$}
+        %\State {$d_{min}$ $\gets$ $\textbf{dist}$}
+        %\EndIf
+        %\EndWhile
+        %\State {$\text{right}$ $\gets$ $first[Y_R]$}
+        %\If{$\text{colors[v] == WHITE}$}
+        %\State {$\textbf{visit(v,colors)}$}
+        %\EndIf
         \EndProcedure
         \end{algorithmic}
       \end{algorithm}
