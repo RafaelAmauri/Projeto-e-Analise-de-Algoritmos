@@ -1,0 +1,18 @@
+Gustavo Lopes Rodrigues - Prova III - PAA
+Questão 3 : Menor supersequência comum
+Para a resolução desse problema, teremos uma função recursiva que
+receberá quatro parâmetros: as duas strings X e Y, o comprimento de
+X e Y (iremos chamar eles de Xl e Yl) e um mapa, onde o mapa terá
+como chave um par de inteiros, e como valor, um número inteiro
+positivo. Este mapa irá servir como um banco de memória
+(memoization), para guardar valores já calculados anteriormente.
+A cada passo da recursão, o objetivo é encontrar strings que sejam
+subsequentes, e que possuem o menor comprimento possível.
+Como durante a árvore de recursão, terá resultados que já foram
+calculados, se durante qualquer chamada da recursão encontrarmos um
+valor repetido, iremos apenas resgatar o valor do banco de memória,
+sendo a chave do mapa o par Xl e Yl na recursão atual.
+A complexidade desta solução será O(Xl * Yl), ou seja, o tamanho das
+duas sequências.
+
+
