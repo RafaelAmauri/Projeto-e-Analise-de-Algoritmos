@@ -40,7 +40,17 @@
     próximos números serão sempre a soma dos dois números anteriores. A seguir temos um exemplo 
     de uma implementação ingênua do algoritmo da sequência de fibonnaci. 
 
-    \lstinputlisting[language=Python]{../code/dynamic-programming/fib.py}
+    \begin{algorithm}
+      \caption{Naive Fibonacci} 
+      \begin{algorithmic}[1]
+      \Procedure{fib}{n}
+      \If{$\text{n $\geq$ 2}$}
+      \State {$\text{\textbf{return} n}$}
+      \EndIf
+      \State {$\text{\textbf{return} fib(n-1) + fib(n-2)}$}
+      \EndProcedure
+      \end{algorithmic}
+    \end{algorithm}
 
     Esta implementação a primeira vista não parece ter nenhum problema. Porém, é quando tentamos 
     executar esse código, que o problema se mostra, o código consegue calcular o 6,7 e 8 número da 
@@ -159,6 +169,43 @@
 
     Eis então agora o código otimizado:
 
-    \lstinputlisting[language=Python]{../code/dynamic-programming/fib-memoization.py}
+    \begin{algorithm}
+      \caption{Optimized Fibonacci} 
+      \begin{algorithmic}[1]
+      \Procedure{fib}{n,memo}
+      \If{$\text{n $\geq$ 2}$}
+      \State {$\text{\textbf{return} n}$}
+      \EndIf
+      \If{$\text{n \textbf{in} memo}$}
+      \State {$\text{\textbf{return} memo[n]}$}
+      \EndIf
+      \State {$\text{memo $\leftarrow$ fib(n-1) + fib(n-2)}$}
+      \State {$\text{\textbf{return} memo[n]}$}
+      \EndProcedure
+      \end{algorithmic}
+    \end{algorithm}
 
-    \lstinputlisting[language=Python]{../code/dynamic-programming/fib-tabulation.py}
+    \subsubsection{Programação dinâmica Vs Backtracking}
+
+    \begin{itemize}
+      \item Programação dinâmica procura a solução ótima para o problema, enquanto 
+      que backtracking tenta sistemáticamente satisfazer um critério, podendo ou não 
+      varrer por toda a árvore.
+      \item Ambos algoritmos possuem conceitos que tem natureza recursiva. Entretanto
+      programação dinâmica ainda pode ser implementado de forma iterativa.
+    \end{itemize}
+
+    \subsubsection{Programação dinâmica Vs Branch and Bound}
+
+    \begin{itemize}
+        \item Programação dinâmica tenta minimizar os passos para resolver 
+        o problema, guardando a solução dos sub-problemas. Enquanto isso, 
+        branch-and-bound tenta sistemáticamente enumerar todos os candidatos 
+        possíveis na árvore de soluções possíveis,
+        \item Ambos algoritmos devido ao seu conceito iram gerar na maioria dos 
+        casos a solução ótima
+    \end{itemize}
+
+    \nocite{dynamic-programming}
+
+\newpage
