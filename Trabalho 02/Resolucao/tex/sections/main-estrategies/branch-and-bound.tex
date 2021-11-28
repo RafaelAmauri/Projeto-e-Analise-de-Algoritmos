@@ -1,6 +1,6 @@
 \section{Branch and Bound} \label{sec:branch-and-bound}
 
-O método de Ramificar e limitar é um algoritmo para 
+O método de Ramificar e limitar é uma forma de 
 encontrar soluções ótimas para vários problemas de otimização, especialmente em 
 otimização combinatória. Consiste em uma enumeração sistemática de todos os candidatos
 a solução, através da qual grandes subconjuntos de candidatos infrutíferos são 
@@ -10,28 +10,19 @@ O método foi proposto por A. H. Land e A. G. Doig em 1960 para programação di
 É utilizado para vários problemas NP-completos como o problema do caixeiro viajante
 e o problema da mochila. 
 
-\subsection{Atribuição de trabalho}
+\subsection{Problema da mochila}
 
-
-\begin{table}[ht]
-    \centering 
-    \begin{tabular}{|c | c | c | c |} 
-        \hline
-         & \textbf{Job 1} & \textbf{Job 2} & \textbf{Job 3} \\ 
-        \hline
-        \textbf{A} & 9 & 3 & 4 \\ 
-        \hline
-        \textbf{B} & 7 & 8 & 4 \\
-        \hline
-        \textbf{C} & 10 & 5 & 2 \\
-        \hline
-   \end{tabular}
-\end{table}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.5\textwidth]{knapsack.png}
+    \caption{Ilustração do problema da mochila}
+    \label{fig:knapsack}
+\end{figure}
 
 \begin{algorithm}
-    \caption{Branch and Bound}
+    \caption{Knapsack}
     \begin{algorithmic}[1]
-    \Procedure{DFS}{}
+    \Procedure{knapsack}{}
     \State {$\text{colors} \gets \text{[G.vertex]}$}
     \For{$\text{v in G.V}$}
     \If{$\text{colors[v] == WHITE}$}
@@ -50,5 +41,8 @@ e o problema da mochila.
     \EndProcedure
     \end{algorithmic}
   \end{algorithm}
+
+  \nocite{branch-and-bound}
+  \nocite{knapsacker}
 
   \newpage

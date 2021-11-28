@@ -1,10 +1,17 @@
 \subsection{Divisão e conquista}
 
-    Divisão e Conquista é uma estratégia para projeto de algoritmos utilizada 
-    pela primeira vez por Anatolii Karatsuba em 1960. Esta técnica consiste em dividir um problema maior 
-    recursivamente em problemas menores, até que o problema possa ser resolvido diretamente. Por fim, a
-    solução do problema inicial é dada através da combinação dos resultados de todos os problemas 
-    menores computados. Exemplos de problemas conhecidos que usam desta estratégia, é o problema de 
+    Divisão e Conquista é uma técnica que pode ser dividida em três 
+    partes fundamentais: dividir um problema maior recursivamente em 
+    problemas menores(\textbf{Dividir}), resolver todos os 
+    sub-problemas (\textbf{Conquistar}). Por fim, a solução do problema inicial 
+    é dada através da combinação dos resultados de todos os problemas 
+    menores computados(\textbf{Combine}). 
+
+    Problemas que usam divisão e conquista são característiscos em possuir um princípio 
+    chamado \textbf{Overlapping subproblems}, ou seja, o problema pode ser divido em 
+    subproblemas, que são reutilizados várias vezes e que não geram novos subproblemas.
+    
+    Exemplos de problemas conhecidos que usam desta estratégia, é o problema de 
     ordenação interna(usando quicksort ou mergesort), ou o problema dos pares de pontos próximos.
 
 \subsubsection{Pares de pontos próximos}
@@ -20,20 +27,24 @@
         \label{fig:divide-and-conquer}
     \end{figure}
 
-    Supondo que a entrada para o problema é um conjunto de pontos com o eixo x já ordenado,
+    Supondo que a entrada para o problema é um conjunto de pontos com o eixo y já ordenado,
     encontramos o ponto do meio, separamos o conjunto ao meio, e então recursivamente descobrimos
     as menores distâncias entre os conjuntos separados, para então achar a solução geral.
+
+    \newpage 
 
     \begin{algorithm}
         \caption{Closest pair of points} 
         \begin{algorithmic}[1]
         \Procedure{Divide-and-conquer}{}
-        \State {$\text{colors} \gets \text{[G.vertex]}$}
-        \For{$\text{v in G.V}$}
+        \State {$d_{min}$ $\gets$ $min(d_L,d_R)$}
+        \State {$Y_{L}$ $\gets$ $\text{ set of y-sorted points in }$ $\Delta$ $\text{ lying to the left of \textbf{l}}$}
+        \State {$Y_{R}$ $\gets$ $\text{ set of y-sorted points in }$ $\Delta$ $\text{ lying to the right of \textbf{l}}$}
+        \State {$text{left}$ $\gets$ $first[Y_L]$}
+        \State {$text{right}$ $\gets$ $first[Y_R]$}
         \If{$\text{colors[v] == WHITE}$}
         \State {$\textbf{visit(v,colors)}$}
         \EndIf
-        \EndFor
         \EndProcedure
         \end{algorithmic}
       \end{algorithm}
@@ -41,22 +52,24 @@
       \subsubsection{Divisão e Conquista Vs Backtracking}
 
       \begin{itemize}
-          \item Devido a maneira como ambos são conceptualizados, ambos 
-          possuem a natureza de serem recursivos.
-          \item Devido a natureza da estratégia de backtracking, tais algoritmos costumam ter 
-          implementações recursivas, enquanto que algoritmos gulosos tentam 
-          buscar a melhor escolha local de forma iterativa.
+          \item Devido a maneira como ambos são conceptualizados, ambos possuem a 
+          natureza de serem recursivos.
+          \item Em divisão e conquista, precisamos analisar a entrada inteira do usuário 
+          para resolver o problema, enquanto que backtracking pode ou não analisar a todas 
+          as possibilidades dentro da entrada do usuário
       \end{itemize}
 
       \subsubsection{Divisão e Conquista Vs Branch and Bound}
 
       \begin{itemize}
-          \item Enquanto divisão e conquista divide a entrada do usuário(Ex: divide o vetor de números para 
-          ordená-los), para resolver os sub-problemas e então resolver a combinação desses problemas. A outra estratégia, 
-          divide o espaço da solução para o problema.
-          \item Devido a natureza da estratégia de backtracking, tais algoritmos costumam ter 
-          implementações recursivas, enquanto que algoritmos gulosos tentam 
-          buscar a melhor escolha local de forma iterativa.
+          \item Enquanto divisão e conquista divide a entrada do usuário(Ex: divide o vetor de 
+          números para ordená-los), para resolver os sub-problemas e então resolver a combinação
+          desses problemas. A outra estratégia, divide o espaço da solução para o problema.
+          \item Tanto Branch and Bound e Divide and Conquer são estratégias que partem dos 
+          mesmos princípios, ambas querem dividir o problema em partes menores, para resolver 
+          o problema todo.
       \end{itemize}
 
+    \nocite{divide-and-conquer}
+    \nocite{closest-pair-of-points}
 \newpage

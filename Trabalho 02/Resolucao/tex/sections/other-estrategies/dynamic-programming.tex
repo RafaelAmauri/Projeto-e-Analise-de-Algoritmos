@@ -8,16 +8,9 @@
     evitar recálculo.
 
     Antes de aplicar essa técnica, o problema precisa atender duas propriedades:
-    um problema com subproblemas(Overlapping subproblems) e uma subestrutura ideal
-    (Optimal substructure).
-
-    \begin{itemize}
-      \item \textbf{Overlapping subproblems}: Uma característica também presente em divisão 
-      e conquista, essa propriedade é presente em problemas, onde este pode ser 
-      divido em subproblemas que são reutilizados várias vezes.
-      \item \textbf{Optimal substructure}: Um problema possui uma subestrutura ideal, quando 
-      uma solução ótima pode ser construída, usando solução ótima para os seus subproblemas.
-    \end{itemize}
+    um problema com subproblemas \textbf{(Overlapping subproblems)} propriedade já vista 
+    em Divisão e conquista e uma subestrutura ideal \textbf{(Optimal substructure)}, propriedade 
+    já vista em algoritmos gulosos.
 
     Para melhor exemplificar esses conceitos, vamos analisar um clássico problema da computação, 
     e também um caso perfeito para ilustrar a estratégia de programação dinâmica.
@@ -112,25 +105,25 @@
                 }
         [6
             [5
-                [4, tikz={\node[draw,circle,red,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
-                  [3, tikz={\node[draw,circle,red,fit=()(!1),inner sep=0mm,xshift=3mm]{};}
+                [4, tikz={\node[draw,circle,black,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
+                  [3, tikz={\node[draw,circle,black,fit=()(!1),inner sep=0mm,xshift=3mm]{};}
                     [2][1]
                   ]
                   [2]
                 ]
-                [3 , tikz={\node[draw,circle,blue,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
+                [3 , tikz={\node[draw,circle,black,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
                     [2][1]
                 ]
             ]
-            [4 , tikz={\node[draw,circle,blue,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
-                [3 , tikz={\node[draw,circle,blue,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
+            [4 , tikz={\node[draw,circle,black,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
+                [3 , tikz={\node[draw,circle,black,fit=()(!1),inner sep=0mm,xshift=3mm]{};} 
                     [2][1] 
                 ]
                 [2]
             ]
         ]
         \end{forest}  
-        \caption{Vermelho são os passos que são calculados, e o que está em azul é repetido}
+        \caption{Árvore de recursão, com os sub-problemas repetidos circulados}
     \end{figure}
 
     Com esse segundo desenho, fica mais evidente que existe passos da recursão que estão repetidos, ou seja,
@@ -190,20 +183,23 @@
     \begin{itemize}
       \item Programação dinâmica procura a solução ótima para o problema, enquanto 
       que backtracking tenta sistemáticamente satisfazer um critério, podendo ou não 
-      varrer por toda a árvore.
+      varrer por toda a árvore, assim como pode ou não encontrar a solução ótima.
       \item Ambos algoritmos possuem conceitos que tem natureza recursiva. Entretanto
-      programação dinâmica ainda pode ser implementado de forma iterativa.
+      programação dinâmica ainda pode ser implementado de forma iterativa, usando 
+      bottom-up (tabulation).
     \end{itemize}
 
     \subsubsection{Programação dinâmica Vs Branch and Bound}
 
     \begin{itemize}
         \item Programação dinâmica tenta minimizar os passos para resolver 
-        o problema, guardando a solução dos sub-problemas. Enquanto isso, 
+        o problema, evitando subproblemas já resolvidos. Enquanto isso, 
         branch-and-bound tenta sistemáticamente enumerar todos os candidatos 
         possíveis na árvore de soluções possíveis,
-        \item Ambos algoritmos devido ao seu conceito iram gerar na maioria dos 
-        casos a solução ótima
+        \item Branch and Bound permite backtracking, para selecionar as melhores 
+        soluções dentro da árvore de estados, enquanto programação dinâmica não 
+        esse tipo de recursão. Como resultado, Branch and Bound pode-se demonstrar 
+        mais lento que programação dinâmica.
     \end{itemize}
 
     \nocite{dynamic-programming}

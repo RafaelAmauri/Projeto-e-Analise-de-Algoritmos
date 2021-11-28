@@ -10,14 +10,24 @@
     ou NP-difícil, a estratégia gulosa torna-se atrativa para a obtenção de
     solução aproximada em tempo polinomial.
 
+    Para o uso dessa abordagem, duas propriedades são de suma importância: 
+
+    \begin{itemize}
+        \item \textbf{Greedy Choice Property}: Uma solução global otimizada pode ser obtida,
+        selecionado uma solução ótima local.
+        \item \textbf{Optimal Substructure}: uma solução ótima pode ser construída, 
+        usando solução ótima para os seus subproblemas.
+    \end{itemize}
+
     Um exemplo de abordagem gulosa é o Algoritmo de Dijkstra.
 
-\subsubsection{Algoritmo de Dijkstra}
+    \subsubsection{Algoritmo de Dijkstra}
 
     \begin{figure}[ht]
         \centering
         \includegraphics[width=.7\textwidth]{dijkstra.png}
-        \caption{Encontrar menor caminho}
+        \caption{Um caso comum em encontrar o menor caminho entre dois pontos, é encontrar 
+        a menor distância entre duas cidades}
         \label{fig:dikstra}
     \end{figure}
 
@@ -26,8 +36,6 @@
     a árvore de caminho mais curto. A cada passo do algoritmo a \textbf{spt} adiciona uma vértice não visitada,
     e então atualiza a distância das adjacências da vértice que foi adicionada. O algoritmo irá terminar, quando 
     a \textbf{spt} conter informação de todas as vértices.
-
-    \newpage 
 
     \begin{algorithm}
         \caption{Dijkstra} 
@@ -53,22 +61,20 @@
     \subsubsection{Algoritmo Guloso Vs Backtracking}
 
     \begin{itemize}
-        \item Ambos tentam procurar pela solução ótima global, e tem casos
-        onde isso é possível, porém, há casos que o algoritmo encontra a solução 
-        sub-optimizada
+        \item Ao tentar buscar pela melhor escolha local, o algoritmo pode não alcançar 
+        o resultado global ótimo, um resultado também presente nos algoritmos usando backtracking
         \item Devido a natureza da estratégia de backtracking, tais algoritmos costumam ter 
         implementações recursivas, enquanto que algoritmos gulosos tentam 
         buscar a melhor escolha local de forma iterativa.
     \end{itemize}
 
-    \subsubsection{Algoritmo Guloso Vs Branch-and-Bound}
+    \subsubsection{Algoritmo Guloso Vs Branch and Bound}
 
     \begin{itemize}
-        \item Ambos tentam procurar pela solução ótima global, e tem casos
-        onde isso é possível, porém, há casos que o algoritmo encontra a solução 
-        sub-optimizada
-        \item Devido a natureza da estratégia de backtracking, tais algoritmos costumam ter 
-        implementações recursivas, enquanto que algoritmos gulosos tentam 
+        \item Algoritmos gulosos costumam ter resultados mais rápidos do que técnicas de 
+        Branch and Bound, porém, este não consegue sempre chegar a solução otimizada global.
+        \item Branch and bound, assim como backtracking, consegue voltar a estados anteriores 
+        da árvore, para encontrar a solução, enquanto isso, algoritmos gulosos tentam 
         buscar a melhor escolha local de forma iterativa.
     \end{itemize}
 
