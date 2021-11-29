@@ -2,7 +2,7 @@
 
 \emph{Backtracking} é uma estratégia para resolver problemas recursivamente e incrementalmente,
 removendo as soluções parciais que falham em ajudar na solução para o problema. Para aplicar
-essa técnica, o algoritmo tenta encontrar a solução utilizando diversos pequenos \emph{checkpoints},
+essa técnica, a estratégia tenta encontrar a solução utilizando diversos pequenos \emph{checkpoints},
 para os quais o programa pode voltar se a iteração atual para a resolução do problema não ajudar a
 encontrar a solução final.
 
@@ -27,7 +27,7 @@ Imaginando que podemos traduzir a imagem acima para uma matriz onde cada ponto d
 decisão do labirinto é uma célula, que todas células têm ponteiros que apontam para 
 quatro direções: cima, baixo, esquerda e direita, e que esses ponteiros podem levar 
 a outras células ou ser do tipo NULL (indicando que não há uma célula ligada naquela direção),
-a estratégia de backtracking pode ser usada para resolver o problema da seguinte forma:
+a estratégia de Backtracking pode ser usada para resolver o problema da seguinte forma:
 
 \begin{figure}[ht]
   \centering
@@ -36,7 +36,7 @@ a estratégia de backtracking pode ser usada para resolver o problema da seguint
   \label{fig:labirinto-resolvido}
 \end{figure}
 
-Admitindo que o algoritmo busca os caminhos disponíveis na ordem [cima, esquerda, baixo, direita],
+Admitindo que esse algoritmo busca os caminhos disponíveis na ordem [cima, esquerda, baixo, direita],
 os caminhos vermelhos são caminhos percorridos pelo algoritmo e que foram detectados como caminhos
 que não contribuem para a solução. A ideia é preservar os checkpoints “certos” que foram percorridos
 e voltar ao último checkpoint correto ao invés de salvar os caminhos “errados” e recomeçar o percurso

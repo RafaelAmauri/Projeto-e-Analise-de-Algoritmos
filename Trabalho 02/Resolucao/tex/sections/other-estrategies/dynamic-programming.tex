@@ -3,35 +3,35 @@
 
     Programação dinâmica é uma estratégia de construção de algoritmos que 
     possui uma grande eficácia na resolução de problemas de otimização combinatória.
-    Em outras palavras, essa estratégia é ideal, quando o problema original 
+    Em outras palavras, essa estratégia é ideal quando o problema original 
     é divido em subproblemas, que se repetem, logo podem ser memorizados para 
-    evitar recálculo.
+    evitar recálculos.
 
     Antes de aplicar essa técnica, o problema precisa atender duas propriedades:
-    um problema com subproblemas \textbf{(Overlapping subproblems)} propriedade já vista 
+    um problema com subproblemas \textbf{(Overlapping subproblems)}, propriedade já vista 
     em Divisão e conquista e uma subestrutura ideal \textbf{(Optimal substructure)}, propriedade 
     já vista em algoritmos gulosos.
 
     Para melhor exemplificar esses conceitos, vamos analisar um clássico problema da computação, 
     e também um caso perfeito para ilustrar a estratégia de programação dinâmica.
 
-    \subsubsection{Fibonnaci}
+    \subsubsection{Fibonacci}
 
-    Descobrido pelo matemático italiano do século 12, Leonardo Fibonacci, a sequência 
-    fibonnaci é uma sucessão de números que aparece codificada nos mais diversos fenômenos 
-    da natureza(spiral de galáxias, ciclone, conchas e vários outros). Na computação, temos 
-    o problema de criar um algoritmo capaz de calcular o n° número da sequência fibonnaci.
+    Descoberto pelo matemático italiano do século 12, Leonardo Fibonacci, a sequência 
+    Fibonacci é uma sucessão de números que aparece codificada nos mais diversos fenômenos 
+    da natureza(espiral de galáxias, ciclones, conchas e vários outros). Na computação, temos 
+    o problema de criar um algoritmo capaz de calcular o número da sequência de Fibonacci.
 
     \begin{figure}[ht]
       \centering
       \includegraphics[width=.3\textwidth]{fibonnaci.jpg}
-      \caption{Uma imagem ilustrativa da sequência Fibonnaci}
+      \caption{Uma imagem ilustrativa da sequência Fibonacci}
       \label{fig:fibonnaci}
     \end{figure}
 
-    A ideia da resolução desse problema é bem simples, sabendo que a sequência inicia com 0 e 1, os
+    A ideia para resolução desse problema é bem simples: sabendo que a sequência inicia com 0 e 1, os
     próximos números serão sempre a soma dos dois números anteriores. A seguir temos um exemplo 
-    de uma implementação ingênua do algoritmo da sequência de fibonnaci. 
+    de uma implementação ingênua do algoritmo da sequência de Fibonacci.
 
     \begin{algorithm}
       \caption{Naive Fibonacci} 
@@ -46,8 +46,8 @@
     \end{algorithm}
 
     Esta implementação a primeira vista não parece ter nenhum problema. Porém, é quando tentamos 
-    executar esse código, que o problema se mostra, o código consegue calcular o 6,7 e 8 número da 
-    sequência, porém, o código não consegue calcular o 50° número. 
+    executar esse código que o problema se mostra. O código consegue calcular o 6°, 7° e 8° número da 
+    sequência, porém o código não consegue calcular o 50° número. 
  
     Para entender a natureza desse problema precisamos entender a complexidade desse código, logo,
     precisamos da árvore de recursão gerada pelo código:
@@ -80,18 +80,17 @@
             ]
         ]
         \end{forest}  
-        \caption{encontrando o 6° número da sequência fibonnaci}
+        \caption{encontrando o 6° número da sequência Fibonacci}
     \end{figure}
 
-    A primeira coisa a se notar é a complexidade do algoritmo, a 
+    A primeira coisa a se notar é a complexidade do algoritmo. A 
     árvore formada possui uma altura N(o número que queremos achar da sequência),
     e a cada novo nível da árvore, formamos no máximo, dois novos nós, logo 
     podemos concluir que a complexidade é de $O(2^{n})$, justificando também, porque 
-    não conseguimos calcular o 50° número, já que este levaria um tempo 
-    equivalente a $2^{50}$.
+    não conseguimos calcular o 50° número, já que este levaria um tempo muito alto.
 
-    Então agora a pergunta fica, como que podemos otimizar essa árvore, de forma 
-    que o algoritmo consiga ter um tempo linear, voltando a árvore, podemos observar 
+    Então agora a pergunta fica: como podemos otimizar essa árvore, de forma 
+    que o algoritmo consiga ter um tempo linear? Voltando à árvore, podemos observar 
     um padrão recorrente.
 
 
@@ -129,8 +128,8 @@
     Com esse segundo desenho, fica mais evidente que existe passos da recursão que estão repetidos, ou seja,
     o programa acaba resolvendo mais de uma vez os mesmos problemas de forma desnecessária. Em conclusão, para 
     resolver esses problemas, o ideal seria uma estrutura que possa guardar 
-    resultados de recursões já feitas, para usar depois, quando o mesmo problema for encontrado, resultando 
-    em uma árvore de recursão assim.
+    resultados de recursões já feitas para usar depois quando o mesmo problema for encontrado, resultando 
+    em uma árvore de recursão da seguinte forma:
 
     \newpage
 
@@ -157,7 +156,7 @@
 
     Com a otimização percebemos que agora a complexidade do 
     código melhorou drasticamente, tendo um resultado de 
-    $O(2n)$ visto que é resultado da altura da árvore multiplicado 
+    $O(2n)$, visto que é resultado da altura da árvore multiplicado 
     por 2, que pode ser simplificado para apenas $O(n)$.
 
     Eis então agora o código otimizado:
@@ -197,9 +196,9 @@
         branch-and-bound tenta sistemáticamente enumerar todos os candidatos 
         possíveis na árvore de soluções possíveis,
         \item Branch and Bound permite backtracking, para selecionar as melhores 
-        soluções dentro da árvore de estados, enquanto programação dinâmica não 
-        esse tipo de recursão. Como resultado, Branch and Bound pode-se demonstrar 
-        mais lento que programação dinâmica.
+        soluções dentro da árvore de estados, enquanto programação dinâmica não utiliza
+        esse tipo de recursão. Como resultado, Branch and Bound pode se demonstrar 
+        mais lento que programação dinâmica em alguns casos.
     \end{itemize}
 
     \nocite{dynamic-programming}

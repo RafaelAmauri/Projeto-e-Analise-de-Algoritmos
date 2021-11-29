@@ -1,14 +1,8 @@
 \subsection{Abordagem gulosa}
 
-    Algoritmo guloso é a estratégia que tenta resolver o problema fazendo a 
-    escolha localmente ótima em cada fase com a esperança de encontrar 
+    Abordagem Gulosa é uma estratégia que tenta resolver o problema fazendo a 
+    escolha ótima localmente em cada fase com o intuito de encontrar 
     uma ótima global que resolve o problema por completo.
-
-    Na solução de alguns problemas combinatórios a estratégia gulosa pode
-    assegurar a obtenção de soluções ótimas, o que não é muito comum. No
-    entanto, quando o problema a ser resolvido pertencer à classe NP-completo
-    ou NP-difícil, a estratégia gulosa torna-se atrativa para a obtenção de
-    solução aproximada em tempo polinomial.
 
     Para o uso dessa abordagem, duas propriedades são de suma importância: 
 
@@ -16,7 +10,7 @@
         \item \textbf{Greedy Choice Property}: Uma solução global otimizada pode ser obtida,
         selecionado uma solução ótima local.
         \item \textbf{Optimal Substructure}: uma solução ótima pode ser construída, 
-        usando solução ótima para os seus subproblemas.
+        usando a solução ótima para os seus subproblemas.
     \end{itemize}
 
     Um exemplo de abordagem gulosa é o Algoritmo de Dijkstra.
@@ -31,10 +25,10 @@
         \label{fig:dikstra}
     \end{figure}
 
-    Dado um grafo qualquer, e dois pontos: partida e chegada, encontre o menor caminho possível.
+    Dado um grafo qualquer e dois pontos: partida e chegada, encontre o menor caminho possível.
     Para resolver esse problema, Dijkstra cria o que é chamado de \emph{Shortest path tree}(spt) ou 
-    a árvore de caminho mais curto. A cada passo do algoritmo a \textbf{spt} adiciona uma vértice não visitada,
-    e então atualiza a distância das adjacências da vértice que foi adicionada. O algoritmo irá terminar, quando 
+    a árvore de caminho mais curto. A cada passo do algoritmo, a \textbf{spt} adiciona uma vértice não visitada,
+    e então atualiza a distância das adjacências da vértice que foi adicionada. O algoritmo irá terminar quando 
     a \textbf{spt} conter informação de todas as vértices.
 
     \begin{algorithm}
@@ -61,8 +55,8 @@
     \subsubsection{Algoritmo Guloso Vs Backtracking}
 
     \begin{itemize}
-        \item Ao tentar buscar pela melhor escolha local, o algoritmo pode não alcançar 
-        o resultado global ótimo, um resultado também presente nos algoritmos usando backtracking
+        \item Por sua natureza, a estratégia Gulosa pode não alcançar imediatamente 
+        o resultado global ótimo, um efeito que também está presente nos algoritmos que utilizam \emph{Backtracking}
         \item Devido a natureza da estratégia de backtracking, tais algoritmos costumam ter 
         implementações recursivas, enquanto que algoritmos gulosos tentam 
         buscar a melhor escolha local de forma iterativa.
@@ -72,10 +66,10 @@
 
     \begin{itemize}
         \item Algoritmos gulosos costumam ter resultados mais rápidos do que técnicas de 
-        Branch and Bound, porém, este não consegue sempre chegar a solução otimizada global.
-        \item Branch and bound, assim como backtracking, consegue voltar a estados anteriores 
-        da árvore, para encontrar a solução, enquanto isso, algoritmos gulosos tentam 
-        buscar a melhor escolha local de forma iterativa.
+        \emph{Branch and Bound} para problemas com menos \emph{input}, mas à medida que a entrada cresce
+        \item \emph{Branch and Bound}, assim como \emph{Backtracking}, consegue voltar a estados anteriores 
+        da árvore para encontrar a solução, enquanto isso, algoritmos gulosos tentam 
+        buscar a melhor escolha local de forma iterativa e não dividem o problema em \emph{"checkpoints"}
     \end{itemize}
 
     \nocite{greedy-algorithm}

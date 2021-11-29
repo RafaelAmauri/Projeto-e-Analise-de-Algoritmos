@@ -3,7 +3,7 @@
     Divisão e Conquista é uma técnica que pode ser dividida em três 
     partes fundamentais: dividir um problema maior recursivamente em 
     problemas menores(\textbf{Dividir}), resolver todos os 
-    sub-problemas (\textbf{Conquistar}). Por fim, a solução do problema inicial 
+    sub-problemas (\textbf{Conquistar}) e, por fim, a solução do problema inicial 
     é dada através da combinação dos resultados de todos os problemas 
     menores computados(\textbf{Combine}). 
 
@@ -11,13 +11,13 @@
     chamado \textbf{Overlapping subproblems}, ou seja, o problema pode ser divido em 
     subproblemas, que são reutilizados várias vezes e que não geram novos subproblemas.
     
-    Exemplos de problemas conhecidos que usam desta estratégia, é o problema de 
-    ordenação interna(usando quicksort ou mergesort), ou o problema dos pares de pontos próximos.
+    Exemplos de problemas conhecidos que usam desta estratégia são o problema de 
+    ordenação interna(usando quicksort ou mergesort) e o problema dos pares de pontos próximos.
 
 \subsubsection{Pares de pontos próximos}
 
-    Dado um conjunto de n pontos em um espaço, é preciso encontrar os dois pontos do conjunto que possuem a 
-    menor distância um do outro. Este problema possui mais de uma possível implementação, porém 
+    Dado um conjunto de N pontos em um espaço, é preciso encontrar os dois pontos do conjunto que possuem a 
+    menor distância um do outro. Este problema possui mais de uma implementação, porém 
     uma das mais eficientes é utilizando divisão e conquista.
 
     \begin{figure}[ht]
@@ -52,10 +52,10 @@
       \subsubsection{Divisão e Conquista Vs Backtracking}
 
       \begin{itemize}
-          \item Devido a maneira como ambos são conceptualizados, ambos possuem a 
+          \item Devido à maneira como ambos são conceitualizados, ambos possuem a 
           natureza de serem recursivos.
           \item Em divisão e conquista, precisamos analisar a entrada inteira do usuário 
-          para resolver o problema, enquanto que backtracking pode ou não analisar a todas 
+          para resolver o problema, enquanto que Backtracking pode ou não analisar a todas 
           as possibilidades dentro da entrada do usuário
       \end{itemize}
 
@@ -63,10 +63,10 @@
 
       \begin{itemize}
           \item Enquanto divisão e conquista divide a entrada do usuário(Ex: divide o vetor de 
-          números para ordená-los), para resolver os sub-problemas e então resolver a combinação
-          desses problemas. A outra estratégia, divide o espaço da solução para o problema.
+          números para ordená-los) para resolver os sub-problemas e então resolver a combinação
+          desses problemas, a outra estratégia divide o espaço da solução para o problema.
           \item Tanto Branch and Bound e Divide and Conquer são estratégias que partem dos 
-          mesmos princípios, ambas querem dividir o problema em partes menores, para resolver 
+          mesmos princípios: ambas querem dividir o problema em partes menores para resolver 
           o problema todo.
       \end{itemize}
 

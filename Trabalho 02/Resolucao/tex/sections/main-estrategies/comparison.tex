@@ -4,17 +4,17 @@ Para terminar esta parte de nossa análise, iremos destacar quatro
 pontos importantes para comparar ambas estratégias.
 
 \begin{itemize}
-    \item Ambos usam uma árvore de estados(state space tree) para encontrar 
-    a solução, porém, enquanto um procura por ela exaustivamente até achar a Branch 
-    and Bound é forçada a passar pela árvore inteira para encontrar a solução otimizada.
-    \item A pesquisa feita na árvore de estados do backtracking utiliza 
-    de um DFS(Depth first search), enquanto que o Branch and Bound pode utilizar 
+    \item Ambos algoritmos usam uma árvore de estados(state space tree) para encontrar 
+    a solução, porém, enquanto Backtracking procura por ela exaustivamente até encontrar a solução, Branch 
+    and Bound é forçado a passar pela árvore inteira para encontrar a solução otimizada.
+    \item A pesquisa feita na árvore de estados do Backtracking utiliza 
+    um DFS(Depth first search), enquanto que o Branch and Bound pode utilizar 
     DFS, ou até mesmo BFS(Breadth first search)
-    \item Como backtracking não precisa percorrer por todas as 
+    \item Como Backtracking não precisa percorrer por todas as 
     possíveis soluções, esta abordagem é mais eficiente do que Branch and Bound,
     que precisa percorrer todas as ramificações da árvore de estados.
-    \item O resultado do algoritmo de backtracking pode ser a solução optimizada,
-    porém, existe problemas que a implementação de backtracking em que o resultado 
+    \item O resultado do algoritmo de Backtracking pode ser a solução optimizada,
+    porém existem problemas na implementação de backtracking em que o resultado 
     será uma solução sub-optimizada. Como Branch and Bound varre procurando todas as 
     soluções, este consegue achar a solução otimizada com maior frequência.
 \end{itemize}
